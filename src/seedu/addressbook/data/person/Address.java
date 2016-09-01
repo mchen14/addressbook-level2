@@ -13,7 +13,8 @@ public class Address {
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
 
     public final String value;
-    public final Block block;
+
+	public final Block block;
     public final Street street;
     public final Unit unit;
     public final PostalCode postalCode;
@@ -41,6 +42,22 @@ public class Address {
         		((this.postalCode.value == "") ? "" : "," + this.postalCode.value);
         
     }
+    /*
+     * Basic getters for returning specific information about the address. 
+     */
+    public Block getBlock() {
+		return block;
+	}
+	public Street getStreet() {
+		return street;
+	}
+	public Unit getUnit() {
+		return unit;
+	}
+	public PostalCode getPostalCode() {
+		return postalCode;
+	}
+
     /**
      * Returns true if a given string is a valid person email.
      */
