@@ -62,9 +62,11 @@ public class Name {
     }
     
     public boolean isSimilar(Name other){
-    	if(other == null){
+    	if(other == null
+    		|| !this.fullName.equals(other.fullName) ){
     		return false;
     	}
+    	return true;
     }
 
 }

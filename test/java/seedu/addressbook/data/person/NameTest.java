@@ -19,10 +19,14 @@ public class NameTest {
 	}
 	
 	@Test
-	public void checkIsSimilarNull(){
+	public void checkIsSimilarNullTest(){
 		Name other = null;
 		assertEquals(name.isSimilar(other), false);
 	}
-	
+	@Test
+	public void checkIsSimilarDifferentNameTest() throws IllegalValueException{
+		Name other = new Name("Carl");
+		assertEquals(name.isSimilar(other), false);
+	}
 	
 }
