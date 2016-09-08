@@ -73,7 +73,7 @@ public class Name {
     	if(other.toString().toLowerCase().equals(this.fullName.toLowerCase())){
     		return true;
     	}
-    	String subsequence = findLongestCommonSubsequence(this.fullName, other.fullName);
+    	String subsequence = findLongestCommonSubsequence(this.fullName.toLowerCase(), other.fullName.toLowerCase());
     	if(subsequence.length() > this.fullName.length() / 2
     	|| subsequence.length() > other.fullName.length() / 2){
     		return true;

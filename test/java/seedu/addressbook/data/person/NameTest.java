@@ -43,4 +43,9 @@ public class NameTest {
 		Name other = new Name("Carl");
 		assertEquals(name.isSimilar(other), true);
 	}
+	@Test
+	public void checkIsSimilarSubsequenceIgnoreCase() throws IllegalValueException{
+		Name other = new Name("CHARLIE BROWN");
+		assertEquals(name.isSimilar(other), true);
+	}
 }
