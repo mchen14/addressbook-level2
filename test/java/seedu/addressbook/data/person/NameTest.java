@@ -24,9 +24,18 @@ public class NameTest {
 		assertEquals(name.isSimilar(other), false);
 	}
 	@Test
-	public void checkIsSimilarDifferentNameTest() throws IllegalValueException{
-		Name other = new Name("Carl");
+	public void checkIsSimilarExactNameTest() throws IllegalValueException{
+		Name other = new Name("Charlie");
+		assertEquals(name.isSimilar(other), true);
+	}
+	@Test
+	public void checkIsSimilarCompletelyDifferentNameTest() throws IllegalValueException{
+		Name other = new Name("Aardvark");
 		assertEquals(name.isSimilar(other), false);
 	}
-	
+	@Test
+	public void checkIsSimilarDifferentCaseTest() throws IllegalValueException{
+		Name other = new Name("chARLIE"); //this is pronounced by heavily emphasizing the capitalized letters.
+		assertEquals(name.isSimilar(other), true);
+	}
 }

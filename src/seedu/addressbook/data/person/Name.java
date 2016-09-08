@@ -60,13 +60,20 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
-    
-    public boolean isSimilar(Name other){
-    	if(other == null
-    		|| !this.fullName.equals(other.fullName) ){
+    /*
+     * Returns true of the other name is very similar to this name.
+     * Two names are considered similar if the longest common subsequence's length is over half 
+     * the shorter of the name's length.
+     */
+     public boolean isSimilar(Name other){
+    	//set up base cases. 
+    	if(other == null){
     		return false;
     	}
+    	if(other.toString().toLowerCase().equals(this.fullName.toLowerCase())){
+    		return true;
+    	}
     	return true;
-    }
-
+     }
+     
 }
