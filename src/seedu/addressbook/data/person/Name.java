@@ -84,7 +84,7 @@ public class Name {
       * Helper method for finding the LCS for name similarity. Names shouldn't be obscenely long
       * so this method is super inefficient because I only have like twenty minutes before tutorial.
       */
-     public static String findLongestCommonSubsequence(String a, String b){
+     private static String findLongestCommonSubsequence(String a, String b){
     	 if(a.isEmpty() || b.isEmpty()){
     		 return "";
     	 }
