@@ -5,11 +5,15 @@ import seedu.addressbook.data.person.UniquePersonList.*;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.data.tag.UniqueTagList.*;
 import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.ui.TextUi;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import javax.swing.plaf.TextUI;
 
 /**
  * Represents the entire address book. Contains the data of the address book.
@@ -22,13 +26,14 @@ public class AddressBook {
 
     private final UniquePersonList allPersons;
     private final UniqueTagList allTags; // can contain tags not attached to any person
-
+    private ArrayList<Taggings> allTaggings;
     /**
      * Creates an empty address book.
      */
     public AddressBook() {
         allPersons = new UniquePersonList();
         allTags = new UniqueTagList();
+        allTaggings = new ArrayList<Taggings>();
     }
 
     /**
@@ -44,6 +49,7 @@ public class AddressBook {
         for (Person p : allPersons) {
             syncTagsWithMasterList(p);
         }
+        allTaggings = new ArrayList<Taggings>();
     }
 
     /**
@@ -98,7 +104,7 @@ public class AddressBook {
     }
 
     /**
-     * Checks if an equivalent person exists in the address book.
+     * Checks if an equivalent Tag exists in the address book.
      */
     public boolean containsTag(Tag key) {
         return allTags.contains(key);
@@ -142,5 +148,15 @@ public class AddressBook {
      */
     public UniqueTagList getAllTags() {
         return new UniqueTagList(allTags);
+    }
+    /**
+     * returns list of taggings made during session as a string.
+     */
+    public String getPrintableTaggings(){
+    	StringBuilder sb = new StringBuilder();
+    	for(Taggings t : allTaggings){
+    		sb.append(t.toString() + "\n");
+    	}
+    	return sb.toString();
     }
 }
