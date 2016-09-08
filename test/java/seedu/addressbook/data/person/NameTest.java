@@ -38,4 +38,9 @@ public class NameTest {
 		Name other = new Name("chARLIE"); //this is pronounced by heavily emphasizing the capitalized letters.
 		assertEquals(name.isSimilar(other), true);
 	}
+	@Test
+	public void checkIsSimilarSubsequenceTest() throws IllegalValueException{
+		Name other = new Name("Carl");
+		assertEquals(name.isSimilar(other), true);
+	}
 }

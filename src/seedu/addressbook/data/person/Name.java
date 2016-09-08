@@ -73,7 +73,26 @@ public class Name {
     	if(other.toString().toLowerCase().equals(this.fullName.toLowerCase())){
     		return true;
     	}
-    	return true;
+    	String subsequence = findLongestCommonSubsequence(this.fullName, other.fullName);
+    	if(subsequence.length() > this.fullName.length() / 2
+    	|| subsequence.length() > other.fullName.length() / 2){
+    		return true;
+    	}
+    	return false;
      }
-     
+     /*
+      * Helper method for finding the LCS for name similarity. Names shouldn't be obscenely long
+      * so this method is super inefficient because I only have like twenty minutes before tutorial.
+      */
+     public static String findLongestCommonSubsequence(String a, String b){
+    	 if(a.isEmpty() || b.isEmpty()){
+    		 return "";
+    	 }
+    	 if(a.charAt(0) == b.charAt(0)){
+    		 return a.charAt(0) + findLongestCommonSubsequence(a.substring(1), b.substring(1));
+    	 }
+    	 String caseOne = findLongestCommonSubsequence(a.substring(1), b);
+    	 String caseTwo = findLongestCommonSubsequence(a, b.substring(1));
+    	 return (caseOne.length() > caseTwo.length())? caseOne: caseTwo;
+     }
 }
